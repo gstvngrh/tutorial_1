@@ -1,10 +1,12 @@
-<h1>Projects</h1>
-<%= link_to "New Project", new_project_path %>
+<header>
+  <h1>Projects</h1>
+  <ul class="actions">
+    <li><%= link_to "New Project", new_project_path, class: "new" %></li>
+  </ul>
+</header>
 <div id="projects">
-
+  <% @projects.each do |p| %>
+    <h2> <%= link_to p.name, p %> </h2>
+    <p> <%= p.description %> </p>
+  <% end %>
 </div>
-
-<% @projects.each do |p| %>
-  <p> <%= link_to p.name, p %> </p>
-  <p> <%= p.description %> </p>
-<% end %>
