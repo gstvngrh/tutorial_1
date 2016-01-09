@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    authorize @project, :show?
   end
 
   def edit
@@ -20,7 +21,7 @@ class ProjectsController < ApplicationController
       render "edit"
     end
   end
-  
+
   private
   def project_params
     params.require(:project).permit(:name,:description)
