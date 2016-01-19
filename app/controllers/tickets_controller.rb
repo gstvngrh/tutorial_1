@@ -42,14 +42,14 @@ class TicketsController < ApplicationController
 
   def destroy
     authorize @ticket, :destroy?
-    
+
     @ticket.destroy
     flash[:notice] = "Ticket has been deleted."
     redirect_to @project
   end
   private
   def ticket_params
-    params.require(:ticket).permit(:name, :description)
+    params.require(:ticket).permit(:name, :description, :attachment)
   end
 
   def set_project
